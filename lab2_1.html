@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Використання оператора IF</title>
+	</head>	
+	<body>
+		<script> 
+            let lang = prompt("Введіть мову (ua, en, pl, de):");
+
+            if (lang === "ua") {
+                document.write("Мова: українська");
+            } else if (lang === "en") {
+                document.write("Мова: англійська");
+            } else if (lang === "pl") {
+                document.write("Мова: польська");
+            } else if (lang === "de") {
+                document.write("Мова: німецька");
+            } else {
+                document.write("Мову невизначено");
+            }
+            setTimeout(function() {
+                window.location.href = 'index.html';
+            }, 2000);
+		</script>
+	</body>
+</html>

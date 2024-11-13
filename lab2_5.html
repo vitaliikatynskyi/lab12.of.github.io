@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Використання оператора FOR...IN</title>
+	</head>	
+	<body>
+		<script> 
+			"use strict";		
+			let propertyInfo = "";
+			for (let propertyName in window) {
+				propertyInfo = propertyName + " - " + window[propertyName];
+				document.write(propertyInfo + "<br>");
+			}
+			document.write('<br><button onclick="window.location.href=\'index.html\'">Назад</button>');
+		</script>
+	</body>
+</html>

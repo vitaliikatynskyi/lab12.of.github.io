@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Визначення пори року</title>
+</head>	
+<body>
+    <script> 
+        "use strict";
+
+        // Запитуємо у користувача місяць
+        let month = prompt("Введіть місяць (наприклад, 'січень', 'лютий', 'березень' і т.д.):").toLowerCase();
+        let season;
+
+        // Використовуємо switch для визначення пори року
+        switch (month) {
+            case "грудень":
+            case "січень":
+            case "лютий":
+                season = "Зима";
+                break;
+            case "березень":
+            case "квітень":
+            case "травень":
+                season = "Весна";
+                break;
+            case "червень":
+            case "липень":
+            case "серпень":
+                season = "Літо";
+                break;
+            case "вересень":
+            case "жовтень":
+            case "листопад":
+                season = "Осінь";
+                break;
+            default:
+                season = "Невірний місяць! Будь ласка, введіть правильний місяць.";
+        }
+
+        // Виводимо результат
+        document.write("<p>Введений місяць: " + month + " - Це " + season + "!</p>");
+
+        // Кнопка для повернення на головну сторінку
+        document.write('<button onclick="window.location.href=\'index.html\'">Назад</button>');
+    </script>
+</body>
+</html>

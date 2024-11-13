@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Знаходження найбільшого числа</title>
+</head>	
+<body>
+    <script>
+        "use strict";
+        
+		// Оголошуємо числа через prompt
+		let a = parseFloat(prompt("Введіть число a:", "34"));
+		let b = parseFloat(prompt("Введіть число b:", "89"));
+		let c = parseFloat(prompt("Введіть число c:", "56"));
+
+        // Виводимо числа на сторінку
+        document.write("<p style='text-align:center; font-size:18px;'>Знайдемо найбільше число серед трьох</p>");
+        document.write("<p style='text-align:center;'>a = " + a + ", b = " + b + ", c = " + c + "</p>");
+
+        // Знаходимо найбільше число за допомогою if-else
+        if (a > b && a > c) {
+            document.write("<p style='text-align:center;'>Найбільше серед трьох чисел - a = " + a + "</p>");
+        } else if (b > c) {
+            document.write("<p style='text-align:center;'>Найбільше серед трьох чисел - b = " + b + "</p>");
+        } else {
+            document.write("<p style='text-align:center;'>Найбільше серед трьох чисел - c = " + c + "</p>");
+        }
+
+        // Використання Math.max для отримання найбільшого числа
+        let maxNumber = Math.max(a, b, c);
+        document.write("<p style='text-align:center;'>Максимальне значення серед трьох чисел: " + maxNumber + "</p>");
+
+        // Кнопка для повернення на головну сторінку
+        document.write('<div style="text-align:center;"><button onclick="window.location.href=\'index.html\'">Повернутись на головну</button></div>');
+    </script>
+</body>
+</html>
