@@ -1,0 +1,949 @@
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A modern, clean font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #e8f5e9; /* Very light green, soft and inviting */
+    scroll-behavior: smooth; /* Smooth scroll for anchor links */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Header & Navigation */
+header {
+    background-color: #ffffff;
+    padding: 15px 0;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Softer, deeper shadow */
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo a {
+    font-size: 2em; /* Slightly larger logo */
+    font-weight: 800; /* Bolder */
+    color: #4CAF50; /* A vibrant green */
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease;
+    letter-spacing: -0.5px; /* Tighter letter spacing */
+}
+
+.logo a:hover {
+    color: #66BB6A;
+    transform: scale(1.02); /* Slight scale on hover */
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* Use gap for spacing */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600; /* Medium bold */
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative; /* For underline effect */
+    padding-bottom: 5px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: #FFC107; /* Yellow underline */
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active { /* Add 'active' class to current page link via JS */
+    color: #4CAF50;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+/* Hero Sections */
+.hero, .page-hero {
+    background: linear-gradient(135deg, #81C784 0%, #4CAF50 100%); /* Green gradient */
+    color: white;
+    text-align: center;
+    padding: 100px 20px; /* More vertical padding */
+    border-radius: 0 0 80px 80px; /* More rounded bottom corners for playfulness */
+    margin-bottom: 60px; /* Increased margin */
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out; /* Simple fade in */
+}
+
+/* Hero Background Elements */
+.hero::before, .page-hero::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 250px;
+    height: 250px;
+    background-color: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    transform: rotate(45deg);
+    z-index: 0;
+    animation: rotateAndScale 10s infinite linear;
+}
+
+.hero::after, .page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -70px;
+    right: -70px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    transform: rotate(-30deg);
+    z-index: 0;
+    animation: rotateAndScale 12s infinite reverse linear;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotateAndScale {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1, .page-hero h1 {
+    font-size: 4em; /* Larger heading */
+    margin-bottom: 25px;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+    font-weight: 800;
+}
+
+.hero h2 {
+    font-size: 2.2em; /* Larger subheading */
+    margin-bottom: 35px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.hero p {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #FFC107; /* Bright yellow */
+    color: #333;
+    padding: 18px 40px; /* Larger padding */
+    text-decoration: none;
+    border-radius: 50px; /* More rounded */
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25); /* Deeper shadow */
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.cta-button:hover {
+    transform: translateY(-5px) scale(1.02); /* More pronounced lift and scale */
+    background-color: #FFD54F;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+}
+
+/* Content Sections */
+.about-app, .content-section, .features, .testimonials, .cta-section {
+    padding: 80px 0; /* More padding */
+    text-align: center;
+}
+
+.about-app h2, .content-section h2, .features h2, .testimonials h2, .cta-section h2 {
+    font-size: 3em; /* Larger headings */
+    margin-bottom: 30px;
+    color: #388E3C; /* Darker green for section titles */
+    font-weight: 700;
+}
+
+.about-app p {
+    font-size: 1.2em;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+    color: #555;
+}
+
+/* Features Section (Index Page) */
+.features .container {
+    display: flex;
+    justify-content: center; /* Center items if less than 3 */
+    flex-wrap: wrap;
+    gap: 40px; /* More space between items */
+}
+
+.feature-item {
+    background-color: white;
+    padding: 40px; /* More padding */
+    border-radius: 20px; /* More rounded corners */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* Softer shadow */
+    flex: 1;
+    min-width: 280px;
+    max-width: 32%; /* Adjusted for better responsiveness */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Ensure text is centered */
+}
+
+.feature-item:hover {
+    transform: translateY(-8px) scale(1.02); /* More dynamic lift and scale */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.feature-item h3 {
+    color: #4CAF50;
+    font-size: 2em; /* Larger feature titles */
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.feature-item p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* Testimonials */
+.testimonials {
+    background-color: #dcedc8; /* A more subtle, pleasant green */
+    padding: 100px 0; /* More padding */
+    border-radius: 80px; /* Large border radius */
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials::before {
+    content: '💬'; /* Speech bubble emoji */
+    font-size: 150px;
+    position: absolute;
+    top: 10px;
+    left: 10%;
+    opacity: 0.1;
+    z-index: 1;
+}
+.testimonials::after {
+    content: '💪'; /* Muscle emoji */
+    font-size: 150px;
+    position: absolute;
+    bottom: 20px;
+    right: 10%;
+    opacity: 0.1;
+    z-index: 1;
+    transform: rotate(20deg);
+}
+
+
+.testimonial-item {
+    background-color: white;
+    padding: 50px; /* More padding */
+    border-radius: 25px; /* More rounded */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Deeper shadow */
+    max-width: 800px;
+    margin: 40px auto; /* More margin */
+    position: relative;
+    z-index: 2; /* Bring to front of emojis */
+}
+
+.testimonial-item p {
+    font-style: italic;
+    font-size: 1.2em; /* Larger text */
+    margin-bottom: 25px;
+    color: #444;
+    line-height: 1.8;
+}
+
+.testimonial-item span {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 1.1em;
+    display: block; /* Ensure it's on its own line */
+    margin-top: 15px;
+}
+
+/* Specific Section Styles (About, Product, Market Analysis, Strategies) */
+.content-section ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    max-width: 900px;
+    margin: 30px auto; /* More margin */
+}
+
+.content-section ul li {
+    background-color: #f0fdf0; /* Light green for list items */
+    padding: 15px 25px; /* More padding */
+    margin-bottom: 12px; /* More space */
+    border-left: 6px solid #66BB6A; /* Thicker accent bar */
+    border-radius: 10px; /* More rounded */
+    font-size: 1.1em;
+    color: #444;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.content-section ul li:hover {
+    transform: translateX(5px); /* Subtle slide effect */
+}
+
+.content-section h3 {
+    color: #4CAF50;
+    margin-top: 40px; /* More margin */
+    font-size: 2em; /* Larger heading */
+    font-weight: 700;
+}
+
+/* About Page Specifics */
+.values-grid {
+    display: flex;
+    justify-content: center; /* Center if fewer items */
+    flex-wrap: wrap;
+    gap: 40px; /* More space */
+    margin-top: 50px;
+}
+
+.value-item {
+    background-color: white;
+    padding: 40px; /* More padding */
+    border-radius: 20px; /* More rounded */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 280px;
+    max-width: 32%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.value-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.value-item h3 {
+    color: #FFC107; /* Yellow for values */
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.value-item p {
+    font-size: 1.05em;
+    line-height: 1.6;
+}
+
+/* Product Page Specifics */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider min */
+    gap: 40px;
+    margin-top: 50px;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.feature-card h3 {
+    color: #4CAF50;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.feature-card ul {
+    list-style: disc; /* Use regular discs for lists inside cards */
+    margin-left: 25px; /* More indent */
+    padding: 0;
+}
+
+.feature-card ul li {
+    background-color: transparent; /* Override previous list style */
+    border-left: none;
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 8px;
+    box-shadow: none;
+    transition: none;
+}
+
+
+/* Market Analysis Page Specifics */
+.competitor-list, .swot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.competitor-item, .swot-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.competitor-item h3, .swot-item h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.competitor-item p, .swot-item p, .swot-item ul li {
+    font-size: 1em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.swot-item.strength { border-left: 6px solid #4CAF50; }
+.swot-item.weakness { border-left: 6px solid #FFC107; } /* Yellow for weaknesses */
+.swot-item.opportunity { border-left: 6px solid #2196F3; } /* Blue for opportunities */
+.swot-item.threat { border-left: 6px solid #F44336; } /* Red for threats */
+
+.swot-item ul {
+    margin-top: 10px;
+    list-style: disc;
+    margin-left: 25px;
+}
+.swot-item ul li {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin-bottom: 5px;
+    box-shadow: none;
+}
+
+/* Strategies Page Specifics */
+.marketing-strategy {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.strategy-item {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.strategy-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+
+.strategy-item h3 {
+    color: #4CAF50;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.strategy-item ul {
+    list-style: disc;
+    margin-left: 25px;
+    padding: 0;
+}
+
+.strategy-item ul li {
+    background-color: transparent;
+    border-left: none;
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 8px;
+    box-shadow: none;
+}
+
+
+/* Contact Page Specifics */
+.contact-info {
+    text-align: left;
+}
+
+.contact-methods {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.contact-method-item {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 280px;
+    max-width: 30%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-method-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.contact-method-item h3 {
+    color: #4CAF50;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.contact-method-item p a {
+    color: #666;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-method-item p a:hover {
+    color: #4CAF50;
+}
+
+.small-text {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.contact-form {
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 15px; /* More padding */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* More rounded */
+    font-size: 1.05em;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.4);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px; /* Min height for textarea */
+}
+
+.contact-form .cta-button {
+    width: 100%;
+    display: block;
+    margin: 30px auto 0 auto;
+    text-align: center;
+    padding: 15px 25px;
+}
+
+.social-links-contact {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.social-links-contact a {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.social-links-contact a:hover {
+    background-color: #66BB6A;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 30px 0; /* More padding */
+    margin-top: 80px; /* More margin */
+    border-top-left-radius: 50px; /* Rounded top corners */
+    border-top-right-radius: 50px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.95em;
+}
+
+.social-links img {
+    width: 28px; /* Size for social icons */
+    height: 28px;
+    margin: 0 10px;
+    transition: transform 0.2s ease;
+}
+
+.social-links a:hover img {
+    transform: translateY(-3px);
+}
+
+/* Interactive Form Specifics (my-fitness-plan.html) */
+.fitness-form {
+    background-color: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+    text-align: left;
+}
+
+.fitness-form .form-group {
+    margin-bottom: 28px; /* More space */
+}
+
+.fitness-form label {
+    display: block;
+    margin-bottom: 12px; /* More space */
+    font-weight: 600;
+    color: #333;
+    font-size: 1.15em;
+}
+
+.fitness-form input[type="number"],
+.fitness-form select {
+    width: 100%;
+    padding: 15px 18px; /* More padding */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1.05em;
+    box-sizing: border-box;
+    appearance: none;
+    background-color: #fcfcfc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fitness-form select {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%234CAF50%22%20d%3D%22M287%20197.8L146.2%2057%205.4%20197.8h281.6z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 20px center; /* Adjust arrow position */
+    background-size: 14px; /* Adjust arrow size */
+    padding-right: 40px;
+}
+
+
+.fitness-form input:focus,
+.fitness-form select:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.fitness-form .cta-button {
+    width: 100%;
+    padding: 18px 20px;
+    font-size: 1.3em;
+    margin-top: 30px;
+}
+
+/* Results Section Styles */
+.results-section {
+    margin-top: 80px;
+    padding-top: 50px;
+    border-top: 3px dashed #b9d8ba; /* Thicker, softer dashed line */
+    text-align: center;
+}
+
+.result-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12); /* Deeper shadow */
+    margin-bottom: 40px; /* More margin */
+    text-align: left;
+}
+
+.result-card h3 {
+    color: #4CAF50;
+    font-size: 2.2em; /* Larger heading */
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.result-card p {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    color: #444;
+}
+
+.result-card p span {
+    font-weight: bold;
+    color: #FFC107; /* Highlight results */
+    font-size: 1.1em; /* Make results slightly larger */
+}
+
+.result-card h4 {
+    color: #333;
+    font-size: 1.6em; /* Larger subheading */
+    margin-top: 35px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 10px;
+}
+.result-card h4::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+}
+
+
+.result-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 650px;
+}
+
+.result-card ul li {
+    background-color: #f0fdf0;
+    padding: 15px 25px;
+    margin-bottom: 10px;
+    border-left: 5px solid #66BB6A;
+    border-radius: 10px;
+    font-size: 1.1em;
+    color: #444;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+.result-card ul li:hover {
+    transform: translateX(5px);
+}
+
+.result-card .disclaimer {
+    background-color: #fff8e1; /* Lighter yellow background for disclaimers */
+    border-left: 6px solid #ffb300; /* Darker orange accent */
+    padding: 25px; /* More padding */
+    border-radius: 12px;
+    margin-top: 50px;
+    text-align: left;
+    color: #7d4d00; /* Darker text color for better readability */
+    font-size: 1em;
+    line-height: 1.6;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.disclaimer p {
+    font-size: 1em;
+    margin: 0; /* Remove default paragraph margin */
+}
+
+#weekly-plan p {
+    background-color: #e3f2fd; /* Light blue for weekly plan */
+    border-left: 5px solid #90CAF9; /* Blue accent */
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 1.05em;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+#weekly-plan p:hover {
+    transform: translateX(5px);
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 3.2em;
+    }
+    .hero h2 {
+        font-size: 1.8em;
+    }
+    .content-section h2, .features h2, .testimonials h2, .cta-section h2 {
+        font-size: 2.5em;
+    }
+    .feature-item, .value-item, .contact-method-item {
+        max-width: 48%; /* Two columns on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 15px;
+    }
+    nav ul li {
+        margin: 0; /* Reset margins from flex-wrap */
+    }
+
+    .hero {
+        padding: 60px 15px;
+        border-radius: 0 0 40px 40px;
+    }
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    .hero h2 {
+        font-size: 1.5em;
+    }
+    .hero p {
+        font-size: 1.1em;
+        margin-bottom: 30px;
+    }
+    .cta-button {
+        padding: 15px 30px;
+        font-size: 1.1em;
+    }
+
+    .container {
+        width: 95%;
+        padding: 15px 0;
+    }
+
+    .about-app, .content-section, .features, .testimonials, .cta-section {
+        padding: 50px 0;
+    }
+    .about-app h2, .content-section h2, .features h2, .testimonials h2, .cta-section h2 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+    .about-app p {
+        font-size: 1em;
+    }
+
+    .feature-item, .value-item, .contact-method-item {
+        max-width: 100%; /* Single column on mobile */
+        margin-bottom: 25px;
+        padding: 30px;
+    }
+    .feature-item h3 {
+        font-size: 1.7em;
+    }
+
+    .testimonial-item {
+        padding: 30px;
+        margin: 25px auto;
+    }
+    .testimonial-item p {
+        font-size: 1em;
+    }
+
+    .fitness-form, .contact-form, .result-card {
+        padding: 30px;
+    }
+    .fitness-form .form-group, .contact-form .form-group {
+        margin-bottom: 20px;
+    }
+    .fitness-form label, .contact-form label {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+    .fitness-form input, .fitness-form select, .contact-form input, .contact-form textarea {
+        padding: 12px 15px;
+        font-size: 0.95em;
+    }
+    .fitness-form .cta-button, .contact-form .cta-button {
+        padding: 15px;
+        font-size: 1.1em;
+    }
+
+    .social-links-contact {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitnessApp: Мій Персональний Фітнес-План</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">FitnessApp</a>
+            </div>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="about.html">Про нас</a></li>
+                <li><a href="about-product.html">Про Продукт</a></li>
+                <li><a href="my-fitness-plan.html">Мій Фітнес-План</a></li>
+                <!-- <li><a href="market-analysis.html">Аналіз Ринку</a></li> -->
+                <li><a href="strategies.html">Стратегії</a></li>
+                <li><a href="contact.html">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Створіть Свій Персональний Фітнес-План!</h1>
+                <p>Введіть свої дані та отримайте індивідуальні рекомендації щодо харчування та тренувань.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container interactive-plan">
+                <h2>Введіть Ваші Дані</h2>
+                <form id="fitness-form" class="fitness-form">
+                    <div class="form-group">
+                        <label for="gender">Ваша стать:</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Оберіть...</option>
+                            <option value="male">Чоловік</option>
+                            <option value="female">Жінка</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Вік (роки):</label>
+                        <input type="number" id="age" name="age" min="10" max="100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Зріст (см):</label>
+                        <input type="number" id="height" name="height" min="50" max="250" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Вага (кг):</label>
+                        <input type="number" id="weight" name="weight" min="20" max="300" step="0.1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="activity">Рівень фізичної активності:</label>
+                        <select id="activity" name="activity" required>
+                            <option value="1.2">Малоактивний (сидячий спосіб життя)</option>
+                            <option value="1.375">Легка активність (1-3 тренування/тиждень)</option>
+                            <option value="1.55">Середня активність (3-5 тренувань/тиждень)</option>
+                            <option value="1.725">Висока активність (6-7 тренувань/тиждень)</option>
+                            <option value="1.9">Дуже висока активність (професійний спортсмен)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="goal">Ваша мета:</label>
+                        <select id="goal" name="goal" required>
+                            <option value="lose">Схуднення</option>
+                            <option value="maintain">Підтримка ваги</option>
+                            <option value="gain">Набір м'язової маси</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="cta-button">Отримати Мій План</button>
+                </form>
+
+                <div id="results" class="results-section" style="display: none;">
+                    <h2>Ваші Результати та Рекомендації</h2>
+
+                    <div class="result-card">
+                        <h3>Аналіз Тіла</h3>
+                        <p>Індекс Маси Тіла (ІМТ): <span id="bmi-value"></span> (<span id="bmi-category"></span>)</p>
+                        <p>Орієнтовний Відсоток Жиру: <span id="body-fat-value"></span>%</p>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Рекомендації з Харчування</h3>
+                        <p>Базова потреба в калоріях (BMR): <span id="bmr-value"></span> ккал</p>
+                        <p>Загальна добова потреба в калоріях (TDEE): <span id="tdee-value"></span> ккал</p>
+                        <p>Цільові калорії для Вашої мети: <span id="target-calories"></span> ккал/день</p>
+                        <h4>Рекомендоване співвідношення макронутрієнтів:</h4>
+                        <ul id="macros-recommendation">
+                            </ul>
+                        <h4>Приклади продуктів для Вашого плану:</h4>
+                        <ul id="food-examples">
+                            </ul>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>Рекомендації з Тренувань</h3>
+                        <h4>Типи тренувань:</h4>
+                        <ul id="workout-types">
+                            </ul>
+                        <h4>Приклад тижневого плану:</h4>
+                        <div id="weekly-plan">
+                            </div>
+                    </div>
+
+                    <div class="disclaimer">
+                        <p><strong>Важливо:</strong> Ці рекомендації є загальними та розраховані на основі введених вами даних. Перед початком будь-якої дієти або програми тренувань, проконсультуйтесь з лікарем або кваліфікованим дієтологом/тренером. FitnessApp не несе відповідальності за будь-які наслідки використання цих рекомендацій без професійної консультації.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 FitnessApp. Усі права захищено.</p>
+            <div class="social-links">
+                </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
