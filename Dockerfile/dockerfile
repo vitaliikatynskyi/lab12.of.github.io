@@ -1,8 +1,0 @@
-# Базовий образ з nginx
-FROM nginx:alpine
-
-# Копіюємо всі файли в папку nginx
-COPY . /usr/share/nginx/html
-
-# Відкриваємо порт 80
-EXPOSE 80
